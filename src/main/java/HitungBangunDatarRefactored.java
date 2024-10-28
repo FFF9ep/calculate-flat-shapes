@@ -23,7 +23,7 @@ interface Shape {
  * Ini menyediakan kerangka umum untuk bangun datar seperti persegi dan persegi
  * panjang.
  */
-abstract class AbstractShape implements Shape {
+abstract class AbstractShape implements Shape, PerimeterCalculable {
     protected String name;
 
     /**
@@ -40,6 +40,10 @@ abstract class AbstractShape implements Shape {
      */
     public void printArea() {
         System.out.println("Luas " + name + " adalah: " + calculateArea());
+    }
+
+    public void printPerimeter() {
+        System.out.println("Keliling " + name + " adalah: " + calculatePerimeter());
     }
 }
 
@@ -76,6 +80,11 @@ class Square extends AbstractShape {
     public double calculateArea() {
         return side * side;
     }
+
+    @Override
+    public double calculatePerimeter() {
+        return 4 * side;
+    }
 }
 
 /**
@@ -105,6 +114,11 @@ class Rectangle extends AbstractShape {
     @Override
     public double calculateArea() {
         return length * width;
+    }
+
+    @Override
+    public double calculatePerimeter() {
+        return 2 * (length + width);
     }
 }
 
@@ -197,6 +211,9 @@ public class HitungBangunDatarRefactored {
                 return;
         }
         shape.printArea();
+        if (shape instanceof PerimeterCalculable) {
+            ((PerimeterCalculable) shape).printPerimeter();
+        }
     }
 
     /**
@@ -237,4 +254,10 @@ public class HitungBangunDatarRefactored {
         String response = scanner.next();
         return response.equalsIgnoreCase("ya");
     }
+}
+
+interface PerimeterCalculable {
+    double calculatePerimeter();
+
+    void printPerimeter();
 }

@@ -53,6 +53,7 @@ abstract class AbstractShape implements Shape, PerimeterCalculable {
 class Constants {
     public static final int PERSEGI = 1;
     public static final int PERSEGI_PANJANG = 2;
+    public static final int SEGITIGA = 3;
 }
 
 /**
@@ -188,6 +189,7 @@ public class HitungBangunDatarRefactored {
         System.out.println("Pilih bangun datar:");
         System.out.println(Constants.PERSEGI + ". Persegi");
         System.out.println(Constants.PERSEGI_PANJANG + ". Persegi Panjang");
+        System.out.println(Constants.SEGITIGA + ". Segitiga");
         System.out.print("Masukkan pilihan Anda: ");
     }
 
@@ -205,6 +207,9 @@ public class HitungBangunDatarRefactored {
                 break;
             case Constants.PERSEGI_PANJANG:
                 shape = createRectangle(scanner);
+                break;
+            case Constants.SEGITIGA:
+                shape = Triangle.createTriangle(scanner);
                 break;
             default:
                 System.out.println("Pilihan tidak valid.");

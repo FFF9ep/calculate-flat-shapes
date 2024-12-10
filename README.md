@@ -28,25 +28,25 @@ Pastikan Anda telah menginstal **JDK (Java Development Kit)** di komputer Anda. 
 1. Clone atau unduh proyek ini ke direktori lokal Anda.
 
    ```bash
-   git clone https://github.com/FFF9ep/HitungBangunDatarRefactored.git
+   git clone https://github.com/FFF9ep/calculate-flat-shapes.git
    ```
 
 2. Buka terminal atau Command Prompt, lalu navigasikan ke direktori tempat Anda menyimpan proyek ini.
 
    ```bash
-   cd HitungBangunDatarRefactored
+   cd calculate-flat-shapes
    ```
 
 3. Kompilasi kode menggunakan perintah berikut:
 
    ```bash
-   javac HitungBangunDatarRefactored.java
+   javac calculate-flat-shapes.java
    ```
 
 4. Jalankan program dengan perintah:
 
    ```bash
-   java HitungBangunDatarRefactored
+   java calculate-flat-shapes
    ```
 
 5. Ikuti instruksi di layar untuk menghitung luas bangun datar pilihan Anda. Anda dapat memilih untuk melanjutkan atau keluar setelah setiap perhitungan.

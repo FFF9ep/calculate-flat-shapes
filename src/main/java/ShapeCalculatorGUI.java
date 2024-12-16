@@ -11,20 +11,19 @@ public class ShapeCalculatorGUI {
     private DefaultTableModel tableModel;
 
     public ShapeCalculatorGUI() {
-        frame = new JFrame("Shape Area and Perimeter Calculator");
+        frame = new JFrame("Hitung Luas dan Keliling Bangun Datar");
         frame.setLayout(new FlowLayout());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 500);
 
-        // Create components
-        JLabel lblLength = new JLabel("Length: ");
-        JLabel lblWidth = new JLabel("Width: ");
-        JLabel lblRadius = new JLabel("Radius: ");
-        JLabel lblBase = new JLabel("Base: ");
-        JLabel lblHeight = new JLabel("Height: ");
-        JLabel lblSide1 = new JLabel("Side 1: ");
-        JLabel lblSide2 = new JLabel("Side 2: ");
-        JLabel lblSide3 = new JLabel("Side 3: ");
+        JLabel lblLength = new JLabel("Panjang: ");
+        JLabel lblWidth = new JLabel("Lebar: ");
+        JLabel lblRadius = new JLabel("Jari Jari: ");
+        JLabel lblBase = new JLabel("Basis: ");
+        JLabel lblHeight = new JLabel("Tinggi: ");
+        JLabel lblSide1 = new JLabel("Sisi 1: ");
+        JLabel lblSide2 = new JLabel("Sisi 2: ");
+        JLabel lblSide3 = new JLabel("Sisi 3: ");
 
         txtLength = new JTextField(10);
         txtWidth = new JTextField(10);
@@ -35,18 +34,16 @@ public class ShapeCalculatorGUI {
         txtSide2 = new JTextField(10);
         txtSide3 = new JTextField(10);
 
-        JButton btnCalculateRectangle = new JButton("Calculate Rectangle");
-        JButton btnCalculateCircle = new JButton("Calculate Circle");
-        JButton btnCalculateTriangle = new JButton("Calculate Triangle");
+        JButton btnCalculateRectangle = new JButton("Hitung Persegi");
+        JButton btnCalculateCircle = new JButton("Hitung Lingkaran");
+        JButton btnCalculateTriangle = new JButton("Hitung Segitiga");
 
-        // Table to display results
-        tableModel = new DefaultTableModel(new Object[]{"Shape", "Area", "Perimeter"}, 0);
+        tableModel = new DefaultTableModel(new Object[]{"Bentuk", "Luas", "Keliling"}, 0);
         table = new JTable(tableModel);
 
         JScrollPane scrollPane = new JScrollPane(table);
         scrollPane.setPreferredSize(new Dimension(500, 150));
 
-        // Add components to frame
         frame.add(lblLength);
         frame.add(txtLength);
         frame.add(lblWidth);
@@ -71,7 +68,6 @@ public class ShapeCalculatorGUI {
 
         frame.add(scrollPane);
 
-        // Add action listeners
         btnCalculateRectangle.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -79,9 +75,9 @@ public class ShapeCalculatorGUI {
                     double length = Double.parseDouble(txtLength.getText());
                     double width = Double.parseDouble(txtWidth.getText());
                     Rectangle rectangle = new Rectangle(length, width);
-                    addResultToTable("Rectangle", rectangle.calculateArea(), rectangle.calculatePerimeter());
+                    addResultToTable("Persegi", rectangle.calculateArea(), rectangle.calculatePerimeter());
                 } else {
-                    JOptionPane.showMessageDialog(frame, "Please fill all fields.");
+                    JOptionPane.showMessageDialog(frame, "Isi semua area.");
                 }
             }
         });
@@ -92,9 +88,9 @@ public class ShapeCalculatorGUI {
                 if (!txtRadius.getText().isEmpty()) {
                     double radius = Double.parseDouble(txtRadius.getText());
                     Circle circle = new Circle(radius);
-                    addResultToTable("Circle", circle.calculateArea(), circle.calculatePerimeter());
+                    addResultToTable("Lingkaran", circle.calculateArea(), circle.calculatePerimeter());
                 } else {
-                    JOptionPane.showMessageDialog(frame, "Please fill all fields.");
+                    JOptionPane.showMessageDialog(frame, "Isi semua area.");
                 }
             }
         });
@@ -110,14 +106,13 @@ public class ShapeCalculatorGUI {
                     double side2 = Double.parseDouble(txtSide2.getText());
                     double side3 = Double.parseDouble(txtSide3.getText());
                     Triangle triangle = new Triangle(base, height, side1, side2, side3);
-                    addResultToTable("Triangle", triangle.calculateArea(), triangle.calculatePerimeter());
+                    addResultToTable("Segitiga", triangle.calculateArea(), triangle.calculatePerimeter());
                 } else {
-                    JOptionPane.showMessageDialog(frame, "Please fill all fields.");
+                    JOptionPane.showMessageDialog(frame, "Isi semua area.");
                 }
             }
         });
 
-        // Set frame visibility
         frame.setVisible(true);
     }
 
